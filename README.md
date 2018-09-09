@@ -7,7 +7,7 @@ This is a automation architecture for C# language.
  1. Cloning the repository:
 
     ```shell
-    git clone https://github.com/lndamaral/selenium_csharp_tests.git
+    git clone https://github.com/TestautoDev/SeleniumCSharpFramework.git
     ```
 
 
