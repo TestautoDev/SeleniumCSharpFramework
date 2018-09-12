@@ -8,7 +8,7 @@ namespace Framework.Helper
     public class DriverFactory
     {
         private IWebDriver _driver;
-        
+
         public DriverFactory()
         {
             _driver = null;
@@ -32,14 +32,33 @@ namespace Framework.Helper
                     }
                 }
 
+                else if (browser.Equals("IE"))
+                {
+                    if (Convert.ToBoolean(ConfigurationManager.AppSettings["Remote"]))
+                    {
+                        _driver = IE.Build();
+                    }
+                    else
+                    {
+                        _driver = IE.BuildLocal();
+                    }
+                }
+
                 else if (browser.Equals("Firefox"))
                 {
-                    _driver = Firefox.Build();
+                    if (Convert.ToBoolean(ConfigurationManager.AppSettings["Remote"]))
+                    {
+                        _driver = Firefox.Build();
+                    }
+                    else
+                    {
+                        _driver = Firefox.BuildLocal();
+                    }
                 }
 
                 else
                 {
-                    throw new Exception("Driver não suportado!");
+                    throw new Exception("Driver not supported!");
                 }
             }
 

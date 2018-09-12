@@ -15,5 +15,13 @@ namespace Framework.Driver
 
             return new RemoteWebDriver(uri, firefoxOptions);
         }
+
+        public static FirefoxDriver BuildLocal()
+        {
+            var firefoxOptions = new FirefoxOptions();
+            firefoxOptions.AcceptInsecureCertificates = true;
+  
+            return new FirefoxDriver(firefoxOptions);
+        }
     }
 }
